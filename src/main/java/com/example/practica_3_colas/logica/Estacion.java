@@ -7,12 +7,14 @@ public class Estacion {
     private int numero;
     private Cola<Cliente> clientes;
     private ArrayList<Dado> dados;
+    private int ultimaTirada;
 
     public Estacion(int numero, int capacidadCola) {
 
         this.numero = numero;
         clientes = new Cola<>(capacidadCola);
         dados = new ArrayList<>();
+        ultimaTirada = 0;
 
     }
 
@@ -50,6 +52,7 @@ public class Estacion {
 
         if(dados != null && dados.isEmpty()){
 
+            ultimaTirada=0;
             System.out.println("No se encuentra ningun dado en la estacion");
             return 0;
         }
@@ -59,9 +62,13 @@ public class Estacion {
            total = total + cantidad;
         }
 
+        ultimaTirada = total;
         return total;
     }
 
+    public int getUltimaTirada() {
+        return ultimaTirada;
+    }
     public int getNumero() {
         return numero;
     }

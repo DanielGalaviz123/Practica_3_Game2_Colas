@@ -14,7 +14,7 @@ public class Main extends Application {
 
         Scene scene=new Scene(pantalla, 1400, 800);
 
-        stage.setTitle("Practica 3 - Colas");
+        stage.setTitle("Practica 3 Colas");
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.show();

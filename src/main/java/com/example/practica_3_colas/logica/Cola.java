@@ -1,5 +1,6 @@
 package com.example.practica_3_colas.logica;
 
+import java.util.ArrayList;
 public class Cola<T> {
 
     private T[] cola;
@@ -71,5 +72,19 @@ public class Cola<T> {
         }
 
         return fin - inicio + 1;
+    }
+    public ArrayList<T> getElementos() {
+
+        ArrayList<T> elementos = new ArrayList<>();
+
+        if(inicio == -1) {
+            return elementos;
+        }
+
+        for(int i = inicio; i <= fin; i++) {
+            elementos.add(cola[i]);
+        }
+
+        return elementos;
     }
 }

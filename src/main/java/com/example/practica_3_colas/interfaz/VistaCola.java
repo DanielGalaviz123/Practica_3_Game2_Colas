@@ -1,7 +1,10 @@
 package com.example.practica_3_colas.interfaz;
 
+import com.example.practica_3_colas.logica.Cliente;
 import javafx.geometry.Pos;
 import javafx.scene.layout.FlowPane;
+
+import java.util.ArrayList;
 
 public class VistaCola extends FlowPane {
 
@@ -14,9 +17,25 @@ public class VistaCola extends FlowPane {
         setMaxWidth(110);
         setAlignment(Pos.CENTER);
 
-        for(int i=0; i < cantidad; i++) {
+        mostrarClientes(cantidad);
+    }
 
-            getChildren().add(new VistaCliente());
+    public void mostrarClientes(int cantidad) {
+
+        getChildren().clear();
+
+        for(int i=0; i < cantidad; i++) {
+            getChildren().add(new VistaCliente(false));
+        }
+    }
+
+    public void mostrarClientes(ArrayList<Cliente> clientes) {
+
+        getChildren().clear();
+
+        for(Cliente cliente : clientes) {
+            boolean nuevo = cliente.getRondaEntrada() > 0;
+            getChildren().add(new VistaCliente(nuevo));
         }
     }
 }
